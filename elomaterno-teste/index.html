@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EloMaterno - Maternidade com apoio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- =========================================
+         0. FILTROS GLOBAIS (SVG)
+    ========================================= -->
+    <svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;">
+        <defs>
+            <filter id="protanopia"><feColorMatrix type="matrix" values="0.567 0.433 0 0 0 0.558 0.442 0 0 0 0 0.242 0.758 0 0 0 0 0 1 0" /></filter>
+            <filter id="deuteranopia"><feColorMatrix type="matrix" values="0.625 0.375 0 0 0 0.700 0.300 0 0 0 0 0.300 0.700 0 0 0 0 0 1 0" /></filter>
+            <filter id="tritanopia"><feColorMatrix type="matrix" values="0.950 0.050 0 0 0 0 0.433 0.567 0 0 0 0.475 0.525 0 0 0 0 0 1 0" /></filter>
+            <filter id="Acromatopsia"><feColorMatrix type="matrix" values="0.299 0.587 0.114 0 0 0.299 0.587 0.114 0 0 0.299 0.587 0.114 0 0 0 0 0 1 0" /></filter>
+        </defs>
+    </svg>
+
+    <!-- =========================================
+         1. HEADER
+    ========================================= -->
+    <header class="header">
+        <div class="container header-content">
+            <a href="#" class="logo" aria-label="Ir para a página inicial">
+                <img src="img/logo_icon.png" alt="Ícone EloMaterno" class="logo-icon">
+                elomaterno
+            </a>
+            
+            <nav class="nav-links">
+                <a href="#consultorias">Consultorias</a>
+                <a href="#beneficios">Benefícios</a>
+                <a href="#como-funciona">Como funciona</a>
+            </nav>
+            
+            <div class="header-actions">
+                <div class="language-selector" style="position: relative;">
+                    <button class="btn-language" id="language-toggle" aria-label="Mudar idioma">
+                        <img src="https://flagcdn.com/w20/br.png" alt="Português" class="flag-icon" id="current-flag">
+                    </button>
+                    <ul id="language-menu" class="hidden">
+                        <li data-lang="pt" data-flag="br"><img src="https://flagcdn.com/w20/br.png" alt="BR" class="flag-icon"> Português</li>
+                        <li data-lang="en" data-flag="us"><img src="https://flagcdn.com/w20/us.png" alt="US" class="flag-icon"> English</li>
+                        <li data-lang="es" data-flag="es"><img src="https://flagcdn.com/w20/es.png" alt="ES" class="flag-icon"> Español</li>
+                    </ul>
+                </div>
+                
+                <div class="accessibility-selector" style="position: relative;">
+                    <button class="btn-icon" id="accessibility-toggle" aria-label="Opções de acessibilidade">
+                        <i class="fa fa-universal-access" aria-hidden="true"></i>
+                    </button>
+                    <ul id="accessibility-menu" class="hidden">
+                        <li id="increase-font"><i class="fa fa-plus-circle" aria-hidden="true"></i> Aumentar Fonte</li>
+                        <li id="decrease-font"><i class="fa fa-minus-circle" aria-hidden="true"></i> Diminuir Fonte</li>
+                        <li id="colorblind-filter"><i class="fa fa-low-vision" aria-hidden="true"></i> Filtros Daltonismo</li>
+                        <li id="screen-reader"><i class="fa fa-assistive-listening-systems" aria-hidden="true"></i> Leitura em Voz</li>
+                        <li id="reading-mask"><i class="fa fa-highlighter" aria-hidden="true"></i> Máscara de leitura</li>
+                        <li id="bold-text"><i class="fa fa-bold" aria-hidden="true"></i> Letras destacadas</li>
+                        <li id="high-contrast"><i class="fa fa-adjust" aria-hidden="true"></i> Alto contraste</li>
+                        <li id="increase-line"><i class="fa fa-arrows-alt-v" aria-hidden="true"></i> Aumentar Espaçamento Linhas</li>
+                        <li id="decrease-line"><i class="fa fa-compress-arrows-alt" aria-hidden="true"></i> Diminuir Espaçamento Linhas</li>
+                        <li id="reset-accessibility"><i class="fa fa-undo" aria-hidden="true"></i> Redefinir</li>
+                    </ul>
+                </div>
+                
+                <button class="btn-icon" id="theme-toggle" aria-label="Alternar tema">
+                    <i class="fa fa-moon"></i>
+                </button>
+                
+                <button class="btn btn-primary">Acessar Agora</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- =========================================
+             2. HERO SECTION
+        ========================================= -->
+        <section class="hero container">
+            <div class="hero-text fade-in">
+                <h1>Maternidade com o <span>apoio que você merece.</span></h1>
+                <p>Consultorias <strong>gratuitas</strong> com psicólogos e advogados, conteúdo especializado e uma comunidade que acolhe — tudo em um só sistema.</p>
+                
+                <div class="waitlist-info">
+                    <div class="avatars">
+                        <div class="avatar" style="background: #e9d5ff; z-index: 4;">M</div>
+                        <div class="avatar" style="background: #d8b4fe; z-index: 3; margin-left: -10px;">A</div>
+                        <div class="avatar" style="background: #ccadec; z-index: 2; margin-left: -10px;">S</div>
+                        <div class="avatar" style="background: #c084fc; z-index: 1; margin-left: -10px;">+</div>
+                    </div>
+                    <span><strong>+1.000 mães</strong> já cadastradas</span>
+                </div>
+            </div>
+
+            <div class="hero-mockup fade-in slide-up">
+                <div class="mockup-wrapper devices-composition">
+                    <img src="img/2.png" alt="EloMaterno no Computador" class="device-laptop">
+                    <img src="img/3.png" alt="EloMaterno no Celular" class="device-phone">
+                </div>
+            </div>
+        </section>
+        <!-- =========================================
+             2.1 PARCERIAS (AUTHORITY / SOCIAL PROOF)
+        ========================================= -->
+        <section class="partners-section container fade-in">
+            <div class="partners-wrapper">
+                <p class="partners-title">Apoiado por quem faz a diferença</p>
+                
+                <div class="partners-grid">
+                    <!-- Parceiro 1: Justiceiras -->
+                    <div class="partner-logo">
+                        <img src="img/justiceiras-logo.png" alt="Justiceiras - Força Tarefa Pró-Mulher">
+                    </div>
+                    
+                    <!-- Parceiro 2: Amparo Maternal -->
+                    <div class="partner-logo">
+                        <img src="img/349754_8e30e4baf8b74675aef178f672d86225~mv2.png" alt="Amparo Maternal">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================
+             2.2  ESTATÍSTICAS / IMPACTO (CONTADORES)
+        ========================================= -->
+        <section class="stats-section container fade-in">
+            <div class="stats-grid">
+                <!-- Mães Conectadas -->
+                <div class="stat-item">
+                    <h3 class="stat-number">+<span class="counter" data-target="1000">0</span></h3>
+                    <p class="stat-desc"><i class="ph ph-users"></i> Mães conectadas</p>
+                </div>
+                
+                <!-- Linha Divisória -->
+                <div class="stat-divider"></div>
+                
+                <!-- Consultas Realizadas -->
+                <div class="stat-item">
+                    <h3 class="stat-number">+<span class="counter" data-target="100">0</span></h3>
+                    <!-- Usando o ícone de seta para trás conforme a sua imagem de referência -->
+                    <p class="stat-desc"><i class="ph ph-arrow-u-up-left"></i> Consultas Realizadas</p>
+                </div>
+                
+                <!-- Linha Divisória -->
+                <div class="stat-divider"></div>
+                
+                <!-- Cidades Alcançadas -->
+                <div class="stat-item">
+                    <h3 class="stat-number">+<span class="counter" data-target="50">0</span></h3>
+                    <p class="stat-desc">Cidades Alcançadas</p>
+                </div>
+            </div>
+        </section>
+        <!-- =========================================
+            3. COMO FUNCIONA (ESTILO ZIG-ZAG DARK)
+        ========================================= -->
+    <section id="consultorias" class="how-it-works-exact section-margin">
+            
+            <div class="exact-bg-custom"></div>
+
+            <div class="container exact-content-relative">
+                
+                
+
+                <div class="exact-feature-row fade-in">
+                    <div class="exact-mockup-wrapper">
+                        <img src="img/passo1.png" alt="Apoio Psicológico" class="exact-main-mockup">
+                    </div>
+                    
+                    <div class="exact-feature-text">
+                        <h2 class="exact-title">
+                            <span class="title-light">Saúde Mental:</span><br>
+                            <span class="title-bold">Consultorias</span>
+                        </h2>
+                        <div class="exact-title-line"></div>
+                        <p>Agende sessões de escuta e acolhimento com psicólogos(as) e advogados(as)voluntárias. Um espaço seguro, 100% gratuito e confidencial para cuidar de você durante a maternidade.</p>
+                        <a href="#" class="exact-btn-purple">AGENDAR SESSÃO</a>
+                    </div>
+                </div>
+
+                <div class="exact-feature-row reverse fade-in">
+                    <div class="exact-mockup-wrapper">
+                        <img src="img/passo2.png" alt="Orientação Jurídica" class="exact-main-mockup">
+                    </div>
+
+                    <div class="exact-feature-text text-right-desktop">
+                        <h2 class="exact-title">
+                            <span class="title-light">Direitos da Mãe:</span><br>
+                            <span class="title-bold">Orientação Jurídica</span>
+                        </h2>
+                        <div class="exact-title-line align-right"></div>
+                        <p>Tenha acesso a advogadas parceiras para tirar dúvidas sobre pensão alimentícia, licença-maternidade, guarda e outras questões legais, sem nenhum custo.</p>
+                        <a href="#" class="exact-btn-purple">FALAR COM ADVOGADA</a>
+                    </div>
+                </div>
+
+                <div class="exact-feature-row fade-in">
+                    <div class="exact-mockup-wrapper">
+                        <img src="img/passo3.png" alt="Tire suas Dúvidas" class="exact-main-mockup">
+                    </div>
+                    
+                    <div class="exact-feature-text">
+                        <h2 class="exact-title">
+                            <span class="title-light">Rede de Apoio:</span><br>
+                            <span class="title-bold">Tire Suas Dúvidas</span>
+                        </h2>
+                        <div class="exact-title-line"></div>
+                        <p>Converse com profissionais especializados e encontre respostas rápidas e confiáveis para os desafios e as inseguranças do dia a dia na maternidade.</p>
+                        <a href="#" class="exact-btn-purple">VER PROFISSIONAIS</a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+        <!-- =========================================
+             4. FUNCIONALIDADES (POR DENTRO DO APP)
+        ========================================= -->
+        <section class="propaganda-sistema container fade-in section-margin text-center">
+            <span class="badge-tag"><i class="ph ph-laptop"></i> <span data-i18n="feat_tag">POR DENTRO DO APP</span></span>
+            <h2 data-i18n="feat_title">Tudo o que você precisa <span>em um só lugar</span></h2>
+            <p data-i18n="feat_subtitle">Conheça as ferramentas exclusivas criadas para facilitar a sua jornada na maternidade.</p>
+            
+            <div class="cards-grid-3">
+                <div class="feature-card highlight-card">
+                    <div class="icon-box"><i class="ph ph-video-camera"></i></div>
+                    <h3 data-i18n="feat_1_title">Teleconsulta Integrada</h3>
+                    <p data-i18n="feat_1_desc">Sessões de escuta e orientação jurídica por vídeo, dentro de um ambiente seguro e 100% confidencial.</p>
+                </div>
+                <div class="feature-card highlight-card">
+                    <div class="icon-box"><i class="ph ph-users-three"></i></div>
+                    <h3 data-i18n="feat_2_title">Fórum de Acolhimento</h3>
+                    <p data-i18n="feat_2_desc">Comunidade moderada por especialistas para você trocar experiências e tirar dúvidas com outras mães.</p>
+                </div>
+                <div class="feature-card highlight-card">
+                    <div class="icon-box"><i class="ph ph-calendar-check"></i></div>
+                    <h3 data-i18n="feat_3_title">Agendamento Simplificado</h3>
+                    <p data-i18n="feat_3_desc">Escolha o profissional e o melhor horário para você em apenas dois cliques. Sem burocracia.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================
+             5. PROVA SOCIAL (DEPOIMENTOS)
+        ========================================= -->
+        <section class="prova-social container fade-in section-margin text-center">
+            <span class="badge-tag"><i class="ph ph-star"></i> <span data-i18n="social_tag">PROVA SOCIAL</span></span>
+            <h2 data-i18n="social_title">Apoiando mães <span>reais</span></h2>
+            <p data-i18n="social_subtitle">Veja o que as mães estão falando sobre a nossa rede de apoio.</p>
+
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p data-i18n="testim_1">"O EloMaterno me salvou em um momento de muita angústia. Consegui uma orientação jurídica rápida e gratuita que me deu paz."</p>
+                    <div class="author-info">
+                        <div class="avatar-author" style="background: #e9d5ff;">C</div>
+                        <div>
+                            <strong>Camila S.</strong>
+                            <span data-i18n="testim_1_role">Mãe solo (São Paulo)</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p data-i18n="testim_2">"Achei que o processo seria demorado, mas em dois toques agendei uma escuta com uma psicóloga maravilhosa. É um abraço em forma de app."</p>
+                    <div class="author-info">
+                        <div class="avatar-author" style="background: #d8b4fe;">J</div>
+                        <div>
+                            <strong>Juliana M.</strong>
+                            <span data-i18n="testim_2_role">Mãe de gêmeos</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- =========================================
+             6. CTA FINAL (FORMULÁRIO)
+        ========================================= -->
+        <section class="final-cta container fade-in section-margin text-center">
+            <div class="cta-box">
+                <h2 data-i18n="cta_title">Pronta para ter o apoio que você merece?</h2>
+                <p data-i18n="cta_subtitle">Inscreva-se gratuitamente hoje e garanta acesso prioritário ao nosso sistema.</p>
+                
+                <form class="cta-form" action="#" method="POST">
+                    <input type="email" id="lead-email" required placeholder="Digite seu melhor e-mail" data-i18n-placeholder="cta_placeholder">
+                    <button type="submit" class="btn btn-large btn-dark" data-i18n="cta_btn">Criar conta grátis</button>
+                </form>
+                
+                <p class="security-note"><i class="ph ph-lock"></i> <span data-i18n="cta_secure">Seus dados estão 100% seguros e protegidos conosco.</span></p>
+            </div>
+        </section>
+    </main>
+
+    <!-- =========================================
+         7. UTILITÁRIOS (MÁSCARA E LIBRAS)
+    ========================================= -->
+    <div id="reading-mask-overlay">
+        <div class="highlight-window"></div>
+    </div>  
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>new window.VLibras.Widget('https://vlibras.gov.br/app');</script>
+    <script src="script.js"></script>
+</body>
+</html>
