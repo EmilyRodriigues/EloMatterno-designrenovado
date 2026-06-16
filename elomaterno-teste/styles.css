@@ -270,6 +270,128 @@ body.colorblind-Acromatopsia { filter: url('#Acromatopsia'); }
     .final-cta .cta-box { padding: 40px 20px; }
 }
 
+/* =========================================
+   8. FOOTER MODERNO (RODAPÉ)
+========================================= */
+.modern-footer {
+    background-color: var(--white);
+    padding-top: 80px;
+    padding-bottom: 20px;
+    color: var(--text-dark);
+    
+    /* Truque definitivo para esticar a tela sem usar "transform" */
+    width: 100vw !important;
+    position: relative !important;
+    left: 50% !important;
+    right: 50% !important;
+    margin-left: -50vw !important;
+    margin-right: -50vw !important;
+    box-sizing: border-box !important;
+}
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr; /* A primeira coluna (logo) ocupa mais espaço */
+    gap: 60px;
+    margin-bottom: 60px;
+}
+
+/* Marca e Descrição */
+.footer-logo {
+    margin-bottom: 20px;
+    display: inline-flex;
+}
+
+.footer-desc {
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 24px;
+    max-width: 400px;
+}
+
+/* Ícones de Redes Sociais */
+.social-links {
+    display: flex;
+    gap: 16px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--bg-soft);
+    color: var(--primary-color);
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+    transform: translateY(-3px); /* Pulinho charmoso ao passar o mouse */
+}
+
+/* Colunas de Links */
+.footer-links h4 {
+    font-size: 1.1rem;
+    color: var(--primary-dark);
+    margin-bottom: 24px;
+    font-weight: 600;
+}
+
+.footer-links ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 16px;
+}
+
+.footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+    font-weight: 500;
+    padding-left: 4px; /* Efeito do texto andando levemente para a direita */
+}
+
+/* Linha Inferior (Copyright e Políticas) */
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 24px;
+    border-top: 1px solid rgba(132, 113, 177, 0.1);
+    font-size: 0.85rem;
+    color: #9ca3af;
+}
+
+.legal-links {
+    display: flex;
+    gap: 24px;
+}
+
+.legal-links a {
+    color: #9ca3af;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.legal-links a:hover {
+    color: var(--primary-color);
+}
+
 
 /* =========================================
    COMO FUNCIONA (ESTILO EXATO DA REFERÊNCIA)
@@ -586,6 +708,42 @@ body.colorblind-Acromatopsia { filter: url('#Acromatopsia'); }
     
     .clean-feature-row.reverse .text-right-desktop {
         align-items: center; /* Centraliza no celular */
+        text-align: center;
+    }
+}
+
+
+/* =========================================
+   RESPONSIVIDADE DO FOOTER
+========================================= */
+@media (max-width: 992px) {
+    .footer-grid {
+        grid-template-columns: 1fr 1fr; /* Quebra para duas colunas em tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .modern-footer {
+        padding-top: 60px;
+    }
+    
+    .footer-grid {
+        grid-template-columns: 1fr; /* Empilha tudo em uma coluna no celular */
+        gap: 40px;
+        text-align: center;
+    }
+    
+    .footer-desc {
+        margin: 0 auto 24px auto; /* Centraliza o texto */
+    }
+    
+    .social-links {
+        justify-content: center;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        gap: 16px;
         text-align: center;
     }
 }

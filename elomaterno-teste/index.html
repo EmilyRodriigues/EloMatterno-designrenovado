@@ -201,6 +201,7 @@
                         <a href="#" class="exact-btn-purple">FALAR COM ADVOGADA</a>
                     </div>
                 </div>
+            </div>
 
       
       <!-- =========================================
@@ -242,7 +243,6 @@
                 5. PROVA SOCIAL (DEPOIMENTOS)
             ========================================= -->
             <section class="prova-social container fade-in section-margin text-center">
-                <span class="badge-tag"><i class="ph ph-star"></i> <span data-i18n="social_tag">PROVA SOCIAL</span></span>
                 <h2 data-i18n="social_title">Apoiando mães <span>reais</span></h2>
                 <p data-i18n="social_subtitle">Veja o que as mães estão falando sobre a nossa rede de apoio.</p>
 
@@ -271,23 +271,23 @@
             </section>
 
         <!-- =========================================
-             6. CTA FINAL (FORMULÁRIO)
+             6. CTA FINAL (REDIRECIONAMENTO)
         ========================================= -->
         <section class="final-cta container fade-in section-margin text-center">
             <div class="cta-box">
                 <h2 data-i18n="cta_title">Pronta para ter o apoio que você merece?</h2>
-                <p data-i18n="cta_subtitle">Inscreva-se gratuitamente hoje e garanta acesso prioritário ao nosso sistema.</p>
+                <p data-i18n="cta_subtitle">Junte-se a milhares de mães e acesse agora mesmo a sua rede de acolhimento e informação.</p>
                 
-                <form class="cta-form" action="#" method="POST">
-                    <input type="email" id="lead-email" required placeholder="Digite seu melhor e-mail" data-i18n-placeholder="cta_placeholder">
-                    <button type="submit" class="btn btn-large btn-dark" data-i18n="cta_btn">Criar conta grátis</button>
-                </form>
+                <!-- Substituímos o formulário por um botão chamativo -->
+                <div style="margin-top: 30px;">
+                    <!-- Quando a tela de login estiver pronta, basta colocar o link no href abaixo -->
+                    <a href="#login" class="btn btn-large btn-dark" data-i18n="cta_btn">Acessar a Plataforma</a>
+                </div>
                 
-                <p class="security-note"><i class="ph ph-lock"></i> <span data-i18n="cta_secure">Seus dados estão 100% seguros e protegidos conosco.</span></p>
+                <p class="security-note"><i class="ph ph-lock"></i> <span data-i18n="cta_secure">Ambiente 100% seguro, gratuito e confidencial.</span></p>
             </div>
         </section>
-    </main>
-
+       
     <!-- =========================================
          7. UTILITÁRIOS (MÁSCARA E LIBRAS)
     ========================================= -->
@@ -300,6 +300,57 @@
             <div class="vw-plugin-top-wrapper"></div>
         </div>
     </div>
+
+    <footer class="modern-footer">
+        <div class="container">
+            <div class="footer-grid">
+                
+                <div class="footer-brand">
+                    <a href="#" class="logo footer-logo">
+                        <img src="img/logo_icon.png" alt="Ícone EloMaterno" class="logo-icon">
+                        elomaterno
+                    </a>
+                    <p class="footer-desc">A sua rede de apoio na maternidade. Um espaço seguro, 100% gratuito e confidencial para cuidar de você e dos seus direitos.</p>
+                    
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Plataforma</h4>
+                    <ul>
+                        <li><a href="#consultorias">Consultorias</a></li>
+                        <li><a href="#beneficios">Benefícios EloMoedas</a></li>
+                        <li><a href="#como-funciona">Como funciona</a></li>
+                        <li><a href="#depoimentos">Histórias Reais</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links">
+                    <h4>Suporte</h4>
+                    <ul>
+                        <li><a href="#">Central de Ajuda</a></li>
+                        <li><a href="#">Dúvidas Frequentes (FAQ)</a></li>
+                        <li><a href="#">Fale Conosco</a></li>
+                        <li><a href="#">Seja uma Voluntária</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 EloMaterno. Todos os direitos reservados.</p>
+                <div class="legal-links">
+                    <a href="#">Termos de Uso</a>
+                    <a href="#">Política de Privacidade</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
 
     <!-- Scripts -->
     <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
