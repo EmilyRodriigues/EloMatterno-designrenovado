@@ -3,29 +3,27 @@
 // Futuro Angular: Isso vai se transformar em uma Custom Directive (ex: @Directive({selector: '[appFadeIn]'}))
 // Função: Observa quando o elemento entra na tela e adiciona a classe 'visible'
 // =========================================================
+
 document.addEventListener("DOMContentLoaded", () => {
     const observerOptions = {
         root: null,
-        rootMargin: '0px',
-        threshold: 0.15 // Dispara a animação quando 15% do elemento estiver visível
+        rootMargin: '0px 0px -50px 0px', // Aciona a animação um pouco antes do elemento chegar no final da tela
+        threshold: 0.2 // Aumentado levemente para esperar um pedaço maior do elemento aparecer
     };
 
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Adiciona a classe que engatilha o CSS transition
                 entry.target.classList.add('visible');
-                // Interrompe a observação após a primeira animação (opcional)
+                // Mantém o unobserve para animar apenas uma vez
                 observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    // Aplica o observer em cada elemento
     const fadeElements = document.querySelectorAll('.fade-in');
     fadeElements.forEach(el => observer.observe(el));
 });
-
 
 // =========================================================
 // 2. LÓGICA DE COMPONENTE: SEÇÃO "COMO FUNCIONA" (STICKY SCROLL)

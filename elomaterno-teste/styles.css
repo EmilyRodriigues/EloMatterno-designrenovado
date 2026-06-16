@@ -126,7 +126,86 @@ h1, h2, h3, h4 { font-family: var(--font-heading); color: var(--text-dark); }
 .btn-dark { background-color: var(--primary-dark); color: var(--white); }
 .btn-dark:hover { background-color: #3f345c; transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.2); }
 .security-note { font-size: 0.85rem !important; opacity: 0.8; margin-top: 16px !important; margin-bottom: 0 !important; }
+/* =========================================
+   4. FUNCIONALIDADES (CLEAN UI)
+========================================= */
 
+/* Estilos do Título e Badge (Tag) */
+.clean-badge {
+    background: transparent;
+    border: 1px solid rgba(132, 113, 177, 0.4) !important;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.75rem !important;
+    padding: 8px 16px !important;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    color: var(--primary-dark);
+    margin-top: 20px;
+    margin-bottom: 12px;
+}
+
+.section-subtitle {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    max-width: 650px;
+    margin: 0 auto 60px auto;
+}
+
+/* O Cartão Minimalista com Borda Roxa */
+.clean-card {
+    background: var(--white) !important; 
+    border-radius: 32px !important; /* Cantos bem arredondados */
+    padding: 40px 30px !important;
+    text-align: left !important;
+    box-shadow: 0 10px 30px rgba(132, 113, 177, 0.05) !important;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+    /* Animação suave para quando passar o mouse */
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease !important;
+}
+
+/* Efeito Hover (passar o mouse) */
+.clean-card:hover {
+    transform: translateY(-10px); /* O cartão "flutua" para cima */
+    box-shadow: 0 20px 40px rgba(132, 113, 177, 0.15) !important;
+    border-color: var(--primary-color) !important; /* A borda fica um pouco mais escura */
+}
+
+/* A caixinha do Ícone (quadrado arredondado) */
+.icon-box-clean {
+    width: 60px;
+    height: 60px;
+    background: #bfaee3; /* Um roxo bem suave e delicado */
+    color: var(--white); /* Ícone branco */
+    border-radius: 16px; /* Quadrado com cantos arredondados */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    margin-bottom: 24px;
+}
+
+/* Tipografia dentro do cartão */
+.clean-card h3 {
+    font-size: 1.4rem;
+    color: var(--primary-dark);
+    margin-bottom: 16px;
+    font-weight: 700;
+}
+
+.clean-card p {
+    color: var(--text-dark);
+    line-height: 1.7;
+    font-size: 1rem;
+    opacity: 0.85; /* Deixa o texto levemente mais cinza para leitura suave */
+}
 /* =========================================
    6. ACCESSIBILIDADE & LINGUAGEM DO SITE
 ========================================= */
@@ -191,6 +270,7 @@ body.colorblind-Acromatopsia { filter: url('#Acromatopsia'); }
     .final-cta .cta-box { padding: 40px 20px; }
 }
 
+
 /* =========================================
    COMO FUNCIONA (ESTILO EXATO DA REFERÊNCIA)
 ========================================= */
@@ -212,17 +292,12 @@ body.colorblind-Acromatopsia { filter: url('#Acromatopsia'); }
     position: absolute;
     top: 0;
     left: 0;
-    /* MUDANÇA: Agora o fundo respeita 100% da caixa, não da janela inteira forçadamente */
     width: 100%; 
     height: 100%;
-    
     background-image: url('img/Rectangle.svg');
     background-repeat: no-repeat;
-    
-    /* MUDANÇA: O 'cover' garante que a onda se ajuste para caber inteira sem distorcer ou vazar */
     background-size: cover; 
-    /* Fixa o topo da imagem no topo da seção, para a onda começar certinha */
-    background-position: top center; 
+    background-position: center -200px; 
     z-index: 0;
 }
 
@@ -237,8 +312,15 @@ body.colorblind-Acromatopsia { filter: url('#Acromatopsia'); }
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 40px; /* <-- DIMINUÍDO PARA DAR MAIS ESPAÇO À IMAGEM */
-    margin-bottom: 140px;
+    gap: 40px; 
+    
+    /* MUDANÇA AQUI: Aumentado de 140px para 250px para afastar bem uma seção da outra */
+    margin-bottom: 200px; 
+}
+
+/* Tira a margem gigante do último item para não sobrar espaço em branco à toa no final da onda */
+.exact-feature-row:last-child {
+    margin-bottom: 0;
 }
 
 .exact-feature-row.reverse {
@@ -320,38 +402,68 @@ body.colorblind-Acromatopsia { filter: url('#Acromatopsia'); }
 
 /* --- Mockups (Imagens) --- */
 .exact-mockup-wrapper {
-    flex: 2; /* A imagem agora exige o DOBRO do espaço do texto */
+    flex: 1.5; /* Dá mais espaço para a imagem crescer em relação ao texto */
     position: relative;
     display: flex;
     justify-content: center;
-    margin: 0 -80px; /* Puxa a imagem bem para perto da borda do monitor */
+}
+
+/* Margens mais suaves, empurrando só um pouquinho para as bordas */
+.exact-feature-row .exact-mockup-wrapper {
+    margin-left: -30px;
+    margin-right: 30px;
+}
+
+.exact-feature-row.reverse .exact-mockup-wrapper {
+    margin-left: 30px;
+    margin-right: -30px;
 }
 
 .exact-main-mockup {
     position: relative;
     z-index: 2;
     width: 100%;
-    max-width: 1000px; /* Limite gigante */
-    
+    max-width: 750px; /* Reduzido de 1200px para um tamanho muito mais contido */
     background: transparent;
     box-shadow: none;
     border: none;
     border-radius: 0;
-    
-    /* O SEGREDO AQUI: Força a imagem a crescer mais 15% por cima de tudo */
-    transform: scale(1.15); 
+    transform: scale(1.05); /* Reduzido de 1.25 para 1.05: dá só 5% de zoom em vez de 25% */
 }
 
-/* Garante que no celular a imagem não vaze para fora da tela */
+/* Ajustes para Celular: Tira o zoom e as margens negativas para não vazar da telinha */
 @media (max-width: 992px) {
-    .exact-mockup-wrapper {
-        margin: 0;
+    .exact-feature-row .exact-mockup-wrapper,
+    .exact-feature-row.reverse .exact-mockup-wrapper {
+        margin: 0; 
     }
     .exact-main-mockup {
-        transform: scale(1); /* Desliga o zoom no celular */
+        transform: scale(1); 
         max-width: 100%;
     }
 }
+/* --- Ajuste de Tamanho Específico para as Linhas Invertidas (Passo 2) --- */
+.exact-feature-row.reverse .exact-mockup-wrapper {
+    flex: 1.5; /* Dá uma fatia ainda maior de espaço para a imagem em relação ao texto */
+    margin: 1 -30px; /* Puxa a imagem mais para a borda da tela */
+}
+
+.exact-feature-row.reverse .exact-main-mockup {
+    max-width: 400px; /* Aumenta o limite de largura que antes era de 1000px */
+    transform: scale(1.25); /* Aumenta o zoom, que antes era 1.15 */
+}
+
+/* Mantém o visual arrumado quando a usuária estiver no celular */
+@media (max-width: 992px) {
+    .exact-feature-row.reverse .exact-mockup-wrapper {
+        margin: 0;
+    }
+    .exact-feature-row.reverse .exact-main-mockup {
+        transform: scale(1); /* Tira o zoom para não quebrar a tela pequena */
+        max-width: 100%;
+    }
+}
+
 
 /* =========================================
    ELEMENTOS FLUTUANTES (ZIGZAG, +, CIRCULO)
